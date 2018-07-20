@@ -23,21 +23,20 @@ class GoodsController extends Controller
 
     }
     public function store(Request $request){
-        //dd($request->all());
 
         $goods = new Goods();
         $goods->name=$request->name;
-        $goods->short_descripton=$request->short_description;
+        $goods->short_description=$request->short_description;
         $goods->description=$request->description;
-        $goods->save;
+        $goods->icon=$request->icon;
+        $goods->save();
         return redirect('/goods');
-
     }
 
     public function create()
     {
       //  return "create";
-        return view('goods.create', [
+        return view('goods.make', [
         ]);
     }
 
@@ -45,4 +44,6 @@ class GoodsController extends Controller
     {
         return 11;
     }
+
+
 }
