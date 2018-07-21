@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
+use App\Photo;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -13,7 +15,11 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::all();
+//        return $goods;
+        return view('admin/photo/index', [
+            'photos'=>$photos
+        ]);
     }
 
     /**
@@ -23,7 +29,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.photo.make', [
+        ]);
     }
 
     /**
@@ -34,7 +41,14 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photos = new Photo();
+        $photos->name=$request->name;
+        $photos->title=$request->title;
+        $photos->alt=$request->alt;
+        $photos->path=$request->path;
+        $photos->save();
+        //dd($request->all());
+        return redirect('/admin/photo');
     }
 
     /**

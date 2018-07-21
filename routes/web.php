@@ -27,16 +27,24 @@ Route::get('/goods', 'GoodsController@index');
 Route::get('/goods/create', 'GoodsController@create');
 
 Route::get('/goods/{id}', 'GoodsController@view')->name('goods');
-
-//Route::get('/photos', 'GoodsController@index')->name('photos');
-
-
 Route::post('/goods', 'GoodsController@store');
+
+Route::get('/photos', 'PhotosController@index');
+Route::get('/photos/create', 'PhotosController@create');
+Route::get('/photos/{id}', 'PhotosController@view');
+Route::post('/photos', 'PhotosController@store');
+
+
+
 
 Route::post('/admin/good', 'admin\GoodController@store');
 
 Route::get('/admin/good', 'admin\GoodController@index');
 Route::get('/admin/good/create', 'admin\GoodController@create');
+
+Route::get('/admin/photo', 'admin\PhotoController@index');
+Route::get('/admin/photo/create', 'admin\PhotoController@create');
+Route::post('/admin/photo', 'admin\PhotoController@store');
 
 
 

@@ -1,7 +1,7 @@
 @extends('test')
 
 @section('content')
-    <form method="post" action="/admin/photo">
+    <form method="post" action="/photos">
         {{csrf_field()}}
         <div class="form-group">
             <label for="name">Name photo</label>
